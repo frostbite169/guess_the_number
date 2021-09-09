@@ -38,6 +38,7 @@ def check_guess(guess, secret):
 
 
 def main():
+    
     attempts = 0
     (low, high) = configure_range()
     secret = generate_secret(low, high)
@@ -51,10 +52,19 @@ def main():
         
 
         if result == correct:
-            break
+            while True:
+                answer = str(input('Run again? (y/n): '))
+                if answer in ('y', 'n'):
+                    break
+                print("invalid input.")
+            if answer == 'y':
+                continue
+                
+            else:
+                break
 
     print('Thanks for playing the game!')
-
+        
 
 if __name__ == '__main__':
     main()
